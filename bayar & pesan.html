@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Pembayaran dan Pesanan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center; /* Menengahkan teks judul */
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table th, table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #f8f8f8;
+        }
+
+        .mtext-101 {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .mtext-110 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .flex-w {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        select, button, input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            box-sizing: border-box; /* Menghindari masalah ukuran box */
+        }
+
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .total-section {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            font-size: 18px;
+            font-weight: bold;
+            border-top: 2px solid #ddd;
+        }
+
+        .total-section span {
+            color: #333;
+        }
+
+        .form-section {
+            margin-top: 20px;
+        }
+
+        .form-section label {
+            display: block;
+            padding-top: 10px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Halaman Pembayaran dan Pesanan</h1>
+
+        <!-- Bagian Pesanan -->
+        <h2>Rincian Pesanan</h2>
+        <table>
+            <tr>
+                <th>Produk</th>
+                <th>Jumlah</th>
+                <th>Harga</th>
+            </tr>
+            <tr>
+                <td>Nama Produk 1</td>
+                <td>1</td>
+                <td>Rp. 200.000,00</td>
+            </tr>
+            <tr>
+                <td>Nama Produk 2</td>
+                <td>1</td>
+                <td>Rp. 70.000,00</td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong>Total:</strong></td>
+                <td><strong>Rp. 270.000,00</strong></td>
+            </tr>
+        </table>
+
+        <!-- Bagian Pembayaran -->
+        <h2>Metode Pembayaran</h2>
+        <select name="payment-method">
+            <option>Pilih Metode Pembayaran...</option>
+            <option>Transfer Bank</option>
+            <option>Kartu Kredit</option>
+            <option>e-Wallet (GoPay, OVO, dll)</option>
+            <option>Bayar di Tempat (COD)</option>
+        </select>
+
+        <!-- Informasi Kontak -->
+        <div class="form-section">
+            <h2>Informasi Kontak</h2>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
+
+            <label for="address">Alamat:</label>
+            <input type="text" id="address" name="address" placeholder="Masukkan alamat Anda" required>
+        </div>
+
+        <!-- Total Harga -->
+        <div class="total-section">
+            <span>Total yang Harus Dibayar:</span>
+            <span>Rp. 270.000,00</span>
+        </div>
+
+        <!-- Tombol Pembayaran -->
+        <button>Lanjutkan ke Pembayaran</button>
+    </div>
+
+</body>
+</html>

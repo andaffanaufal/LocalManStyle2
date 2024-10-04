@@ -1,3 +1,10 @@
+<?php
+include 'koneksi.php';
+
+$sql = "SELECT name, category, image_url, price, detail_url, quick_view_url FROM product";
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +12,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
-<!--===============================================================================================-->
+	
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -45,24 +51,20 @@
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
-						Free shipping for standard order over $100
+					Dapatkan Gaya Baru, Harga Spesial Segera!
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							Help & FAQs
+						<a href="Registrasi.php" class="flex-c-m trans-04 p-lr-25">
+							Akun saya
 						</a>
 
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							My Account
+							Bantu & Tanya jawab
 						</a>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							EN
-						</a>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							USD
+						<a href="about.html" class="flex-c-m trans-04 p-lr-25">
+							Tentang
 						</a>
 					</div>
 				</div>
@@ -73,7 +75,7 @@
 					
 					<!-- Logo desktop -->		
 					<a href="#" class="logo">
-						<img src="images/Screenshot_2024-08-06_081538-removebg-preview 2.png" alt="IMG-LOGO">
+						<img src="images/LOGO.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
@@ -86,14 +88,6 @@
 
 							<li class="active-menu">
 								<a href="product.html">Shop</a>
-							</li>
-
-							<li class="label1" data-label1="hot">
-								<a href="shoping-cart.html">Features</a>
-							</li>
-
-							<li>
-								<a href="blog.html">Blog</a>
 							</li>
 
 							<li>
@@ -195,15 +189,7 @@
 				</li>
 
 				<li>
-					<a href="product.html">Shop</a>
-				</li>
-
-				<li>
-					<a href="shoping-cart.html" class="label1 rs1" data-label1="hot">Features</a>
-				</li>
-
-				<li>
-					<a href="blog.html">Blog</a>
+					<a href="product.php">Shop</a>
 				</li>
 
 				<li>
@@ -252,62 +238,45 @@
 				<ul class="header-cart-wrapitem w-full">
 					<li class="header-cart-item flex-w flex-t m-b-12">
 						<div class="header-cart-item-img">
-							<img src="images/item-cart-01.jpg" alt="IMG">
+							<img src="images/30-removebg-preview 1.png" alt="IMG">
 						</div>
 
 						<div class="header-cart-item-txt p-t-8">
 							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								White Shirt Pleat
+								celana WDWIN Slimfit Jeans
 							</a>
 
 							<span class="header-cart-item-info">
-								1 x $19.00
+								Rp. 200.000,00
 							</span>
 						</div>
 					</li>
 
 					<li class="header-cart-item flex-w flex-t m-b-12">
 						<div class="header-cart-item-img">
-							<img src="images/item-cart-02.jpg" alt="IMG">
+							<img src="images/26-removebg-preview 3.png" alt="IMG">
 						</div>
 
 						<div class="header-cart-item-txt p-t-8">
 							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Converse All Star
+								kemeja polos Navy misty
 							</a>
 
 							<span class="header-cart-item-info">
-								1 x $39.00
+								Rp. 70.000,00
 							</span>
 						</div>
 					</li>
 
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="images/item-cart-03.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Nixon Porter Leather
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $17.00
-							</span>
-						</div>
-					</li>
 				</ul>
 				
 				<div class="w-full">
 					<div class="header-cart-total w-full p-tb-40">
-						Total: $75.00
+						Total: Rp. 270.000,00
 					</div>
 
 					<div class="header-cart-buttons flex-w w-full">
-						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-							View Cart
-						</a>
+						
 
 						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
 							Check Out
@@ -329,32 +298,24 @@
 					</button>
 
 					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
-						Women
-					</button>
-
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
-						Men
+						Kemeja panjang & pendek
 					</button>
 
 					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
-						Bag
+						T-Shirt
 					</button>
 
 					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
-						Shoes
+						Celana jeans
 					</button>
 
 					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
-						Watches
+						Jaket
 					</button>
 				</div>
 
 				<div class="flex-w flex-c-m m-tb-10">
-					<div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
-						<i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
-						<i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-						 Filter
-					</div>
+					
 
 					<div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
 						<i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
@@ -565,47 +526,61 @@
 			</div>
 
 			<div class="row isotope-grid">
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<img src="images/30-removebg-preview 1.png" alt="IMG-PRODUCT">
-
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View
-							</a>
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									celana WDWIN Slimfit Jeans
-								</a>
-
-								<span class="stext-105 cl3">
-									Rp. 200.000,00
-								</span>
+				<?php
+				if ($result->num_rows > 0) {
+					while ($row = $result->fetch_assoc()) {
+						$name = $row['name'];
+						$category = $row['category'];
+						$image_url = $row['image_url'];
+						$price = number_format($row['price'], 2, ',', '.');
+						$detail_url = $row['detail_url'];
+						$quick_view_url = $row['quick_view_url'];
+			
+						echo "
+						<div class=\"col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item $category\">
+							<div class=\"block2\">
+								<div class=\"block2-pic hov-img0\">
+									<img src=\"$image_url\" alt=\"IMG-PRODUCT\">
+									<a href=\"$quick_view_url\" class=\"block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1\">
+										Quick View
+									</a>
+								</div>
+								<div class=\"block2-txt flex-w flex-t p-t-14\">
+									<div class=\"block2-txt-child1 flex-col-l\">
+										<a href=\"$detail_url\" class=\"stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6\">
+											$name
+										</a>
+										<span class=\"stext-105 cl3\">
+											Rp. $price
+										</span>
+									</div>
+									<div class=\"block2-txt-child2 flex-r p-t-3\">
+										<a href=\"#\" class=\"btn-addwish-b2 dis-block pos-relative js-addwish-b2\">
+											<img class=\"icon-heart1 dis-block trans-04\" src=\"images/icons/icon-heart-01.png\" alt=\"ICON\">
+											<img class=\"icon-heart2 dis-block trans-04 ab-t-l\" src=\"images/icons/icon-heart-02.png\" alt=\"ICON\">
+										</a>
+									</div>
+								</div>
 							</div>
+						</div>";
+					}
+				} else {
+					echo "0 hasil";
+				}
+				$conn->close();
+				?>
+		
 
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item men">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
 							<img src="images/26-removebg-preview 3.png" alt="IMG-PRODUCT">
-
+							
 							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
 							</a>
+
 						</div>
 
 						<div class="block2-txt flex-w flex-t p-t-14">
@@ -629,7 +604,7 @@
 					</div>
 				</div>
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item men">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item bag">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
@@ -661,7 +636,7 @@
 					</div>
 				</div>
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item bag">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
@@ -693,7 +668,7 @@
 					</div>
 				</div>
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item men">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
@@ -725,7 +700,7 @@
 					</div>
 				</div>
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item watches">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item shoes">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
@@ -761,7 +736,7 @@
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/9-removebg-preview 1.png" alt="IMG-PRODUCT">
+							<img src="images/kemeja hitam pendek.png" alt="IMG-PRODUCT">
 
 							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
@@ -789,7 +764,7 @@
 					</div>
 				</div>
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item bag">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
@@ -821,7 +796,7 @@
 					</div>
 				</div>
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item shoes">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
@@ -853,7 +828,7 @@
 					</div>
 				</div>
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item bag">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
@@ -885,7 +860,7 @@
 					</div>
 				</div>
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item men">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
@@ -917,11 +892,11 @@
 					</div>
 				</div>
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item men">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item bag">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/30-removebg-preview 1.png" alt="IMG-PRODUCT">
+							<img src="images/29-removebg-preview 1.png" alt="IMG-PRODUCT">
 
 							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
@@ -931,11 +906,11 @@
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
 								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									celana WDWIN Slimfit Jeans
+								Fairgoods Tshirt
 								</a>
 
 								<span class="stext-105 cl3">
-									Rp. 200.000,00
+								Rp. 75.000,00
 								</span>
 							</div>
 
@@ -949,7 +924,7 @@
 					</div>
 				</div>
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item shoes">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
@@ -1017,7 +992,7 @@
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/0.15 2.png" alt="IMG-PRODUCT">
+							<img src="images/Screenshot_2024-09-04_190542-removebg-preview.png" alt="IMG-PRODUCT">
 
 							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
@@ -1027,11 +1002,11 @@
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
 								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Black Plaid Oxford Shirt
+									Jacket tracksuit WESTGODS
 								</a>
 
 								<span class="stext-105 cl3">
-									Rp. 50.000,00
+									Rp. 382.000,00
 								</span>
 							</div>
 
@@ -1045,11 +1020,11 @@
 					</div>
 				</div>
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item watches">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Screenshot_2024-08-19_084830-removebg-preview.png" alt="IMG-PRODUCT">
+							<img src="images/Screenshot_2024-09-04_185307-removebg-preview.png" alt="IMG-PRODUCT">
 
 							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
@@ -1059,11 +1034,11 @@
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
 								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									kemeja pria formal
+									Jacket BOMAN BLACK
 								</a>
 
 								<span class="stext-105 cl3">
-									Rp. 40.000,00
+									Rp. 300.000,00
 								</span>
 							</div>
 
@@ -1077,12 +1052,12 @@
 					</div>
 				</div>
 			</div>
+			
+			
 
 			<!-- Load more -->
 			<div class="flex-c-m flex-w w-full p-t-45">
-				<a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-					Load More
-				</a>
+				
 			</div>
 		</div>
 	</div>
@@ -1177,7 +1152,7 @@
 
 					<form>
 						<div class="wrap-input1 w-full p-b-4">
-							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
+							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="andaffanaufal@gmail.com">
 							<div class="focus-input1 trans-04"></div>
 						</div>
 
@@ -1190,33 +1165,12 @@
 				</div>
 			</div>
 
-			<div class="p-t-40">
-				<div class="flex-c-m flex-w p-b-18">
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-01.png" alt="ICON-PAY">
-					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-02.png" alt="ICON-PAY">
-					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-03.png" alt="ICON-PAY">
-					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-04.png" alt="ICON-PAY">
-					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-05.png" alt="ICON-PAY">
-					</a>
-				</div>
+			
 
 				<p class="stext-107 cl6 txt-center">
-					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved |Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					
+					Copyright &copy;<script>document.write(new Date().getFullYear());</script> Company Name | Designed by Moch Naufal Andaffa Arlianto</a>
+
 
 				</p>
 			</div>
@@ -1254,7 +1208,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 											<img src="images/30-removebg-preview 1.png" alt="IMG-PRODUCT">
 
 											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-01.jpg">
-												<i class="fa fa-expand"></i>
+												
 											</a>
 										</div>
 									</div>
@@ -1264,7 +1218,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 											<img src="images/Screenshot_2024-08-19_111354-removebg-preview.png" alt="IMG-PRODUCT">
 
 											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-02.jpg">
-												<i class="fa fa-expand"></i>
+												
 											</a>
 										</div>
 									</div>
@@ -1274,7 +1228,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 											<img src="images/Screenshot_2024-08-19_111416-removebg-preview.png" alt="IMG-PRODUCT">
 
 											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-03.jpg">
-												<i class="fa fa-expand"></i>
+												
 											</a>
 										</div>
 									</div>

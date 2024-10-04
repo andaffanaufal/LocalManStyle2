@@ -214,15 +214,55 @@
 
     /*==================================================================
     [ +/- num product ]*/
-    $('.btn-num-product-down').on('click', function(){
-        var numProduct = Number($(this).next().val());
-        if(numProduct > 0) $(this).next().val(numProduct - 1);
+
+/*==================================================================
+    [ +/- num product ]*/
+
+// Fungsi untuk mengupdate total per item dan total keseluruhan
+function updateTotal() {
+    var totalKeseluruhan = 0;
+    $('.table_row').each(function() {
+        // Ambil harga dari elemen, bersihkan dari simbol mata uang dan koma
+        var hargaText = $(this).find('.harga-item').text();
+        var harga = Number(hargaText.replace(/[Rp.,\s]/g, '').trim()); // Menghapus Rp., spasi, dan koma
+
+        // Ambil kuantitas
+        var kuantitas = Number($(this).find('.num-product').val());
+
+        // Hitung total per item
+        var totalPerItem = harga * kuantitas;
+
+        // Tampilkan total per item dalam format mata uang
+        $(this).find('.total-item').text('Rp. ' + totalPerItem.toLocaleString('id-ID'));
+
+        // Tambahkan ke total keseluruhan
+        totalKeseluruhan += totalPerItem;
     });
 
-    $('.btn-num-product-up').on('click', function(){
-        var numProduct = Number($(this).prev().val());
-        $(this).prev().val(numProduct + 1);
-    });
+    // Update total keseluruhan di halaman
+    $('.total-keseluruhan').text('Rp. ' + totalKeseluruhan.toLocaleString('id-ID'));
+}
+
+// Event listener untuk tombol kurang
+$('.btn-num-product-down').on('click', function() {
+    var numProduct = Number($(this).next().val());
+    if (numProduct > 1) {  // Pastikan kuantitas tidak kurang dari 1
+        $(this).next().val(numProduct - 1);
+        updateTotal();  // Update total setelah perubahan kuantitas
+    }
+});
+
+// Event listener untuk tombol tambah
+$('.btn-num-product-up').on('click', function() {
+    var numProduct = Number($(this).prev().val());
+    $(this).prev().val(numProduct + 1);
+    updateTotal();  // Update total setelah perubahan kuantitas
+});
+
+// Update total pertama kali saat halaman dimuat
+updateTotal();
+
+
 
     /*==================================================================
     [ Rating ]*/
